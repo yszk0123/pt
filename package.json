@@ -23,6 +23,7 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "dropbox": "^2.5.12",
+    "qs": "^6.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",

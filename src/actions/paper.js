@@ -1,8 +1,20 @@
 import { createActions } from 'redux-actions';
 
-const { postDailyReport, importDailyReport } = createActions({
-  POST_DAILY_REPORT: date => ({ date }),
-  IMPORT_DAILY_REPORT: id => ({ id }),
+const {
+  authenticateWithPaperSuccess,
+  authenticateWithPaperFailure,
+  postDailyReportSuccess,
+  importDailyReportSuccess,
+} = createActions({
+  AUTHENTICATE_WITH_PAPER_SUCCESS: accessToken => ({ accessToken }),
+  AUTHENTICATE_WITH_PAPER_FAILURE: () => ({}),
+  POST_DAILY_REPORT_SUCCESS: date => ({ date }),
+  IMPORT_DAILY_REPORT_SUCCESS: id => ({ id }),
 });
 
-export { postDailyReport, importDailyReport };
+export {
+  authenticateWithPaperSuccess,
+  authenticateWithPaperFailure,
+  postDailyReportSuccess,
+  importDailyReportSuccess,
+};
