@@ -3,17 +3,20 @@ import { completeMission, editMission } from '../../actions/mission';
 describe('mission', () => {
   it('should return COMPLETE_MISSION action', () => {
     const id = 'mission-id';
-    expect(completeMission(id)).toEqual({
+    const point = 10;
+    expect(completeMission(id, point)).toEqual({
       type: 'COMPLETE_MISSION',
-      payload: { id },
+      payload: { id, point },
     });
   });
 
   it('should return EDIT_MISSION action', () => {
     const id = 'mission-id';
-    expect(editMission(id)).toEqual({
+    const name = 'mission-name';
+    const point = 10;
+    expect(editMission(id, name, point)).toEqual({
       type: 'EDIT_MISSION',
-      payload: { id },
+      payload: { id, name, point },
     });
   });
 });
