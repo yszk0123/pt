@@ -1,5 +1,5 @@
-import reducer from '../../reducers/items';
-import { editItem } from '../../actions/item';
+import reducer from '../../app/reducers/items';
+import { editItem } from '../../app/actions/item';
 
 describe('items', () => {
   it('should handle EDIT_ITEM', () => {

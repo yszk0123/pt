@@ -1,5 +1,5 @@
-import reducer from '../../reducers/missions';
-import { editMission } from '../../actions/mission';
+import reducer from '../../app/reducers/missions';
+import { editMission } from '../../app/actions/mission';
 
 describe('missions', () => {
   it('should handle EDIT_ITEM', () => {

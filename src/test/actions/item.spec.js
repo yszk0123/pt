@@ -1,4 +1,4 @@
-import { buyItem, editItem } from '../../actions/item';
+import { buyItem, editItem } from '../../app/actions/item';
 
 describe('item', () => {
   it('should return BUY_ITEM action', () => {
