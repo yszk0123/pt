@@ -1,4 +1,4 @@
-import { resetEvents } from '../../actions/event';
+import { resetEvents } from '../../app/actions/event';
 
 describe('event', () => {
   it('should return RESET_EVENTS action', () => {

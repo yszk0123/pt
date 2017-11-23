@@ -1,7 +1,7 @@
-import reducer from '../../reducers/events';
-import { completeMission } from '../../actions/mission';
-import { buyItem } from '../../actions/item';
-import { resetEvents } from '../../actions/event';
+import reducer from '../../app/reducers/events';
+import { completeMission } from '../../app/actions/mission';
+import { buyItem } from '../../app/actions/item';
+import { resetEvents } from '../../app/actions/event';
 
 describe('events', () => {
   it('should handle BUY_ITEM', () => {

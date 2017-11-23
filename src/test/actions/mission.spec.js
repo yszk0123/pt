@@ -1,4 +1,4 @@
-import { completeMission, editMission } from '../../actions/mission';
+import { completeMission, editMission } from '../../app/actions/mission';
 
 describe('mission', () => {
   it('should return COMPLETE_MISSION action', () => {

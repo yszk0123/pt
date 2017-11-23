@@ -1,7 +1,7 @@
-import configureStore from '../../store/configureStore';
-import { completeMission } from '../../actions/mission';
-import { buyItem } from '../../actions/item';
-import { getTotalPoint } from '../../selectors/app';
+import configureStore from '../../app/store/configureStore';
+import { completeMission } from '../../app/actions/mission';
+import { buyItem } from '../../app/actions/item';
+import { getTotalPoint } from '../../app/selectors/app';
 
 describe('app', () => {
   describe('getTotalPoint', () => {

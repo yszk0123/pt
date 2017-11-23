@@ -4,14 +4,14 @@ import {
   authenticateWithPaper,
   postDailyReport,
   importDailyReport,
-} from '../../sagas/paper';
+} from '../../app/sagas/paper';
 import setURL from '../testHelpers/setURL';
 import {
   authenticateWithPaperSuccess,
   authenticateWithPaperFailure,
   postDailyReportSuccess,
   importDailyReportSuccess,
-} from '../../actions/paper';
+} from '../../app/actions/paper';
 
 const CLIENT_ID = 'client-id';
 

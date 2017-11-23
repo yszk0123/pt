@@ -3,7 +3,7 @@ import {
   authenticateWithPaperFailure,
   postDailyReportSuccess,
   importDailyReportSuccess,
-} from '../../actions/paper';
+} from '../../app/actions/paper';
 
 describe('paper', () => {
   it('should return AUTHENTICATE_WITH_PAPER_SUCCESS action', () => {
