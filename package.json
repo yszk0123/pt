@@ -21,7 +21,7 @@
     ]
   },
   "jest": {
-    "collectCoverageFrom" : [
+    "collectCoverageFrom": [
       "src/**/*.js",
       "!src/registerServiceWorker.js",
       "!src/stories/**",
@@ -30,6 +30,8 @@
     ]
   },
   "dependencies": {
+    "aws-amplify": "^0.1.14",
+    "aws-amplify-react": "^0.1.10",
     "date-fns": "^1.29.0",
     "dropbox": "^2.5.12",
     "qs": "^6.5.1",
