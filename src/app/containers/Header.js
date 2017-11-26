@@ -10,7 +10,7 @@ import { postDailyReportRequest } from '../actions/paper';
 const dropbox = new Dropbox({
   clientId: process.env.REACT_APP_DROPBOX_CLIENT_ID,
 });
-const authUrl = dropbox.getAuthenticationUrl('http://localhost:3000/auth');
+const authUrl = dropbox.getAuthenticationUrl(`${window.location.origin}/auth`);
 
 function selectAccessToken(state) {
   return state.auth.accessToken;
