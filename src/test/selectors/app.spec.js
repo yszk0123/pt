@@ -6,7 +6,7 @@ import { getTotalPoint } from '../../app/selectors/app';
 describe('app', () => {
   describe('getTotalPoint', () => {
     it('should return total point', () => {
-      const store = configureStore();
+      const { store } = configureStore();
       expect(getTotalPoint(store.getState())).toEqual(0);
 
       store.dispatch(completeMission('mission-id', 100));

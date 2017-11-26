@@ -1,11 +1,7 @@
-import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import rootReducer from '../reducers';
-import rootSaga from '../sagas/rootSaga';
-
-export default function configureStore() {
-  const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
-  sagaMiddleware.run(rootSaga);
-  return store;
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line global-require
+  module.exports = require('./configureStore.development');
+} else {
+  // eslint-disable-next-line global-require
+  module.exports = require('./configureStore.production');
 }

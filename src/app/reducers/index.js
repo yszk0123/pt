@@ -1,10 +1,11 @@
-import { combineReducers } from 'redux';
+import auth from './auth';
 import events from './events';
 import items from './items';
 import missions from './missions';
 
-export default combineReducers({
+export default {
+  auth,
   events,
   items,
   missions,
-});
+};

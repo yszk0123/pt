@@ -5,6 +5,8 @@ cache:
   yarn: true
   directories:
     - node_modules
+env:
+  - REACT_APP_DROPBOX_CLIENT_ID=dummy-dropbox-client-id
 script:
   - yarn build
   - yarn test -- --coverage && cat ./coverage/lcov.info | coveralls

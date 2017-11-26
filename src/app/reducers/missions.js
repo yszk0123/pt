@@ -1,5 +1,6 @@
 import { handleActions, combineActions } from 'redux-actions';
-import { editMission } from '../actions/mission';
+import { omit } from 'lodash';
+import { editMission, removeMission } from '../actions/mission';
 
 export const mission = handleActions(
   {
@@ -22,6 +23,11 @@ export default handleActions(
         ...state,
         [id]: mission(state[id], action),
       };
+    },
+    [combineActions(removeMission)](state, action) {
+      const { id } = action.payload;
+
+      return omit(state, id);
     },
   },
   {},

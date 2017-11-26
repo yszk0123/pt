@@ -1,10 +1,11 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, take, fork } from 'redux-saga/effects';
 import { parse } from 'qs';
 import {
   authenticateWithPaperSuccess,
   authenticateWithPaperFailure,
   postDailyReportSuccess,
   importDailyReportSuccess,
+  postDailyReportRequest,
 } from '../actions/paper';
 
 export function* authenticateWithPaper() {
@@ -16,10 +17,11 @@ export function* authenticateWithPaper() {
   }
 }
 
-export function* postDailyReport(client, contents) {
-  yield call([client, client.paperDocsCreate], {
+export function* postDailyReport(client, path, contents) {
+  yield call([client, client.filesUpload], {
+    path,
     contents,
-    import_format: 'markdown',
+    autorename: true,
   });
   yield put(postDailyReportSuccess());
 }
@@ -27,4 +29,13 @@ export function* postDailyReport(client, contents) {
 export function* importDailyReport(client, docId) {
   yield call([client, client.paperDocsDownload], docId);
   yield put(importDailyReportSuccess());
+}
+
+export function* watchPostDailyReport() {
+  while (true) {
+    const { payload: { client, path, contents } } = yield take(
+      postDailyReportRequest,
+    );
+    yield fork(postDailyReport, client, path, contents);
+  }
 }
