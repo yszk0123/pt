@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ItemList from '../components/ItemList';
-import { editItem, buyItem } from '../actions/item';
+import { editItem, buyItem, removeItem } from '../actions/item';
 
 function selectItems(state) {
   return Object.keys(state.items).map(key => state.items[key]);
@@ -11,6 +11,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-  onItemEdit: editItem,
+  onEdit: editItem,
   onBuy: buyItem,
+  onRemove: removeItem,
 })(ItemList);

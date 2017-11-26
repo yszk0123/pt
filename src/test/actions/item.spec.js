@@ -1,4 +1,4 @@
-import { buyItem, editItem } from '../../app/actions/item';
+import { buyItem, editItem, removeItem } from '../../app/actions/item';
 
 describe('item', () => {
   it('should return BUY_ITEM action', () => {
@@ -17,6 +17,14 @@ describe('item', () => {
     expect(editItem(id, name, point)).toEqual({
       type: 'EDIT_ITEM',
       payload: { id, name, point },
+    });
+  });
+
+  it('should return REMOVE_ITEM action', () => {
+    const id = 'item-id';
+    expect(removeItem(id)).toEqual({
+      type: 'REMOVE_ITEM',
+      payload: { id },
     });
   });
 });

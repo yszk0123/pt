@@ -1,5 +1,6 @@
 import { handleActions, combineActions } from 'redux-actions';
-import { editItem } from '../actions/item';
+import { omit } from 'lodash';
+import { editItem, removeItem } from '../actions/item';
 
 export const item = handleActions(
   {
@@ -22,6 +23,11 @@ export default handleActions(
         ...state,
         [id]: item(state[id], action),
       };
+    },
+    [combineActions(removeItem)](state, action) {
+      const { id } = action.payload;
+
+      return omit(state, id);
     },
   },
   {},
