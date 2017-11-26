@@ -36,12 +36,14 @@ describe('paper', () => {
   describe('postDailyReport', () => {
     it('should put success action', () => {
       const client = new Dropbox({ clientId: CLIENT_ID });
+      const path = '/path/to/report';
       const contents = 'report contents';
-      const gen = postDailyReport(client, contents);
+      const gen = postDailyReport(client, path, contents);
       expect(gen.next().value).toEqual(
-        call([client, client.paperDocsCreate], {
+        call([client, client.filesUpload], {
+          path,
           contents,
-          import_format: 'markdown',
+          autorename: true,
         }),
       );
       expect(gen.next().value).toEqual(put(postDailyReportSuccess()));

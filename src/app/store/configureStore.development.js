@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { persistStore, persistCombineReducers } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
@@ -16,7 +16,8 @@ export default function configureStore() {
   const rootReducer = persistCombineReducers(persistConfig, reducers);
   const store = createStore(
     rootReducer,
-    applyMiddleware(logger, sagaMiddleware),
+    undefined,
+    compose(applyMiddleware(sagaMiddleware, logger)),
   );
   const persistor = persistStore(store);
   sagaMiddleware.run(rootSaga);

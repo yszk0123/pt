@@ -6,6 +6,7 @@ const reducer = combineReducers(reducers);
 describe('root', () => {
   it('should return initial state', () => {
     expect(reducer(undefined, {})).toEqual({
+      auth: {},
       events: [],
       items: {},
       missions: {},
