@@ -9,18 +9,18 @@ export default function Header({
   onPostReport,
 }) {
   return (
-    <div className="flex items-center justify-between pa2">
-      <div className="pa2">{totalPoint}</div>
+    <header className="flex items-center justify-between bg-blue ph2 pw3 mb3">
+      <div className="f6 br-100 h2 w2 tc white bg-black pa2">{totalPoint}</div>
       <div className="pa2">
         <a
-          className="f6 link dim br3 ph3 pv2 mb2 dib white bg-red mr1"
+          className="f6 link dim br2 ph3 pv2 dib white bg-red mr1"
           onClick={onEventsReset}
         >
           Reset
         </a>
         {accessToken ? (
           <a
-            className="f6 link dim br3 ph3 pv2 mb2 dib white bg-black"
+            className="f6 link dim br2 ph3 pv2 dib white bg-black"
             onClick={() => onPostReport(accessToken, contents)}
           >
             Report
@@ -31,6 +31,6 @@ export default function Header({
           </a>
         )}
       </div>
-    </div>
+    </header>
   );
 }
