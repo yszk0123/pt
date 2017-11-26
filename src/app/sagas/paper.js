@@ -26,9 +26,28 @@ export function* postDailyReport(client, path, contents) {
   yield put(postDailyReportSuccess());
 }
 
+function readTextFromBlob(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('loadend', () => {
+      if (reader.error) {
+        reject(reader.error);
+      } else {
+        resolve(reader.result);
+      }
+    });
+    reader.readAsText(blob);
+  });
+}
+
 export function* importDailyReport(client, docId) {
-  yield call([client, client.paperDocsDownload], docId);
-  yield put(importDailyReportSuccess());
+  try {
+    const { fileBlob } = yield call([client, client.paperDocsDownload], docId);
+    const data = yield call(readTextFromBlob, fileBlob);
+    yield put(importDailyReportSuccess(data));
+  } catch (error) {
+    yield put(importDailyReportFailure(error));
+  }
 }
 
 export function* watchPostDailyReport() {
