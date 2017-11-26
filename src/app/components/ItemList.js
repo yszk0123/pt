@@ -8,7 +8,7 @@ export default function ItemList({ items, onEdit, onBuy, onRemove }) {
       <h2>Items</h2>
       <ul className="list pa2">
         {items.map(item => (
-          <li key={item.id} className="flex items-center">
+          <li key={item.id} className="flex-wrap items-center">
             <Input
               className="w-auto mr1"
               type="text"

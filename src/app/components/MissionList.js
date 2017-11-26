@@ -13,7 +13,7 @@ export default function MissionList({
       <h2>Missions</h2>
       <ul className="list pa2">
         {missions.map(mission => (
-          <li key={mission.id} className="flex items-center">
+          <li key={mission.id} className="flex-wrap items-center">
             <Input
               className="w-auto mr1"
               type="text"
