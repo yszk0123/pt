@@ -1,5 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 
-export default function App() {
-  return <div>Hello, world!</div>;
+export default function App({ Header, ItemList }) {
+  return (
+    <div className="pa2">
+      <Header />
+      <ItemList />
+    </div>
+  );
 }
