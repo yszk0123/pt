@@ -23,7 +23,7 @@ export default function MissionList({
             <Input
               className="w-25 mr1"
               type="number"
-              value={mission.point || ''}
+              value={mission.point || 0}
               onChange={value =>
                 onEdit(mission.id, mission.name, parseInt(value, 10))
               }

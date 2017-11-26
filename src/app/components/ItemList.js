@@ -18,7 +18,7 @@ export default function ItemList({ items, onEdit, onBuy, onRemove }) {
             <Input
               className="w-25 mr1"
               type="number"
-              value={item.point || ''}
+              value={item.point || 0}
               onChange={value =>
                 onEdit(item.id, item.name, parseInt(value, 10))
               }
