@@ -10,13 +10,13 @@ export default function ItemList({ items, onEdit, onBuy, onRemove }) {
         {items.map(item => (
           <li key={item.id} className="flex items-center">
             <Input
-              className="w-30 w-50-ns mr1"
+              className="w-75 w-50-ns mr1"
               type="text"
               value={item.name || ''}
               onChange={value => onEdit(item.id, value, item.point)}
             />
             <Input
-              className="w-20 w-25-ns mr1"
+              className="w-25 w-25-ns mr1"
               type="number"
               value={item.point || 0}
               onChange={value =>
@@ -37,6 +37,7 @@ export default function ItemList({ items, onEdit, onBuy, onRemove }) {
                 <i className="fa fa-trash" />
               </a>
             </div>
+            <span className="f6 gray">{item.totalPoint || 0}</span>
           </li>
         ))}
       </ul>

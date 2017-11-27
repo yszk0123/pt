@@ -1,6 +1,6 @@
 import { handleActions, combineActions } from 'redux-actions';
 import { omit } from 'lodash';
-import { editItem, removeItem } from '../actions/item';
+import { editItem, removeItem, buyItem } from '../actions/item';
 
 export const item = handleActions(
   {
@@ -8,6 +8,13 @@ export const item = handleActions(
       return {
         ...state,
         ...action.payload,
+        totalPoint: state.totalPoint || 0,
+      };
+    },
+    [buyItem](state, action) {
+      return {
+        ...state,
+        totalPoint: (state.totalPoint || 0) + action.payload.point,
       };
     },
   },
@@ -16,7 +23,7 @@ export const item = handleActions(
 
 export default handleActions(
   {
-    [combineActions(editItem)](state, action) {
+    [combineActions(editItem, buyItem)](state, action) {
       const { id } = action.payload;
 
       return {

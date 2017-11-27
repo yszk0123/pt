@@ -1,6 +1,10 @@
 import { handleActions, combineActions } from 'redux-actions';
 import { omit } from 'lodash';
-import { editMission, removeMission } from '../actions/mission';
+import {
+  editMission,
+  removeMission,
+  completeMission,
+} from '../actions/mission';
 
 export const mission = handleActions(
   {
@@ -8,6 +12,13 @@ export const mission = handleActions(
       return {
         ...state,
         ...action.payload,
+        totalPoint: state.totalPoint || 0,
+      };
+    },
+    [completeMission](state, action) {
+      return {
+        ...state,
+        totalPoint: (state.totalPoint || 0) + action.payload.point,
       };
     },
   },
@@ -16,7 +27,7 @@ export const mission = handleActions(
 
 export default handleActions(
   {
-    [combineActions(editMission)](state, action) {
+    [combineActions(editMission, completeMission)](state, action) {
       const { id } = action.payload;
 
       return {

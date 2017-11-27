@@ -41,6 +41,7 @@ export default function MissionList({
               >
                 <i className="fa fa-trash" />
               </a>
+              <span className="f6 gray">{mission.totalPoint || 0}</span>
             </div>
           </li>
         ))}
